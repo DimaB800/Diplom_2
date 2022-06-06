@@ -12,7 +12,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class CreateTest {
+public class ChangeUserDataTest {
     Faker faker = new Faker();
     public ApiClient apiClient;
     public CreateUser createUser;
@@ -32,7 +32,7 @@ public class CreateTest {
     @After
     public void deleteUser() {
         boolean refreshNotNullAndIsEmpty = (refreshToken != null) && (refreshToken.isEmpty());
-        if (refreshNotNullAndIsEmpty) apiClient.delete(createUser);
+        if (refreshNotNullAndIsEmpty) apiClient.deleteUser(createUser);
     }
 
     @Test
