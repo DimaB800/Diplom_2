@@ -42,8 +42,8 @@ public class GetOrderTest {
         ValidatableResponse response = apiClient.getOderUserWithoutAuthorization();
         int statusCode = response.extract().statusCode();
         String message = response.extract().path("message");
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", statusCode, 401);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", message, "You should be authorised");
+        Assert.assertEquals("Код ответа не соответствует ожидаемому", statusCode, 401);
+        Assert.assertEquals("Сообщение не соответствует ожидаемому", message, "You should be authorised");
     }
 
     @Test

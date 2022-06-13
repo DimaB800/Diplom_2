@@ -71,8 +71,8 @@ public class CreateOrderTest {
         ValidatableResponse responseCreate = apiClient.createOrderWithoutAuthorization(OrderRequest.getOrderWithoutIngredients());
         int statusCodeCreate = responseCreate.extract().statusCode();
         String message = responseCreate.extract().path("message");
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", statusCodeCreate, 400);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", message, "Ingredient ids must be provided");
+        Assert.assertEquals("Код ответа не соответствует ожидаемому", statusCodeCreate, 400);
+        Assert.assertEquals("Сообщение не соответствует ожидаемому", message, "Ingredient ids must be provided");
 
     }
 
@@ -82,7 +82,7 @@ public class CreateOrderTest {
 
         ValidatableResponse responseCreate = apiClient.createOrderWithoutAuthorization(OrderRequest.getOrderWithDefaultHashIngredients());
         int statusCodeCreate = responseCreate.extract().statusCode();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", statusCodeCreate, 500);
+        Assert.assertEquals("Код ответа не соответствует ожидаемому", statusCodeCreate, 500);
 
     }
 }

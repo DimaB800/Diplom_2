@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public class PlaceholderRestClient {
-    private final String BASE_URL = "http://stellarburgers.nomoreparties.site";
+    private final String BASE_URL = "http://stellarburgers.nomoreparties.site/api/";
 
     protected RequestSpecification baseSpec() {
         return new RequestSpecBuilder()

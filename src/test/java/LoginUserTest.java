@@ -34,11 +34,12 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Проверка авторизации пользователя с невалидными данными")
     public void LoginUserWithInvalidLoginAndPasswordTest() {
         ValidatableResponse response = new ApiClient().loginUser(LoginUserRequest.getLoginUserWithInvalidLoginAndPassword(createUser));
         response.assertThat().body("success", equalTo(false)).and().statusCode(401);
         String messageError = response.extract().path("message");
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", messageError, "email or password are incorrect");
+        Assert.assertEquals("Сообщение об ошибке не соответствует ожидаемому", messageError, "email or password are incorrect");
     }
 
 }

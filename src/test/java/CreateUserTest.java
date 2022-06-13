@@ -40,8 +40,8 @@ public class CreateUserTest {
         int statusCode = response.extract().statusCode();
         String messageError = response.extract().path("message");
 
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", statusCode, 403);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", messageError, "User already exists");
+        Assert.assertEquals("Код ответа не соответствует ожидаемому", statusCode, 403);
+        Assert.assertEquals("Сообщение об ошибке не соответствует ожидаемому", messageError, "User already exists");
 
     }
 
@@ -53,7 +53,7 @@ public class CreateUserTest {
         int statusCode = response.extract().statusCode();
         String messageError = response.extract().path("message");
 
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", statusCode, 403);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", messageError, "Email, password and name are required fields");
+        Assert.assertEquals("Код ответа не соответствует ожидаемому", statusCode, 403);
+        Assert.assertEquals("Сообщение об ошибке не соответствует ожидаемому", messageError, "Email, password and name are required fields");
     }
 }

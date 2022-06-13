@@ -17,7 +17,7 @@ public class ApiClient extends PlaceholderRestClient {
     public IngredientsResponse getIngredients() {
         return given()
                 .spec(baseSpec())
-                .get("/api/ingredients")
+                .get("ingredients")
                 .body()
                 .as(IngredientsResponse.class);
     }
@@ -29,7 +29,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .body(createUser)
                 .when()
-                .post("/api/auth/register")
+                .post("auth/register")
                 .then();
     }
 
@@ -51,7 +51,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .header("Authorization", accessToken)
                 .spec(baseSpec())
                 .when()
-                .get("/api/auth/user")
+                .get("auth/user")
                 .then()
                 .assertThat()
                 .statusCode(200)
@@ -67,7 +67,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .when()
                 .body(createUser)
-                .patch("/api/auth/user");
+                .patch("auth/user");
     }
 
     @Step("Обновление информации о пользователе без токена")
@@ -77,7 +77,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .when()
                 .body(createUser)
-                .patch("/api/auth/user");
+                .patch("auth/user");
     }
 
     @Step("Авторизация пользователя")
@@ -86,7 +86,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .body(loginUserRequest)
                 .when()
-                .post("/api/auth/login/")
+                .post("auth/login/")
                 .then();
     }
 
@@ -96,7 +96,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .when()
                 .body(orderRequest)
-                .post("/api/orders")
+                .post("orders")
                 .then();
     }
 
@@ -108,7 +108,7 @@ public class ApiClient extends PlaceholderRestClient {
                 .spec(baseSpec())
                 .when()
                 .body(orderRequest)
-                .post("/api/orders")
+                .post("orders")
                 .then();
     }
 
@@ -118,7 +118,7 @@ public class ApiClient extends PlaceholderRestClient {
         return given()
                 .header("Authorization", accessToken)
                 .spec(baseSpec())
-                .get("/api/orders")
+                .get("orders")
                 .then();
     }
 
@@ -127,7 +127,7 @@ public class ApiClient extends PlaceholderRestClient {
 
         return given()
                 .spec(baseSpec())
-                .get("/api/orders")
+                .get("orders")
                 .then();
     }
 }
